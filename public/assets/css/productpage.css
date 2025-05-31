@@ -996,6 +996,15 @@
     padding: 0 15px;
     margin-top: 10px;
 }
+.register_contant .register_contant_row .register_contant_row_inner .item .item_inner form ul li:nth-child(12) input {
+	width: 50%;
+	background-color: transparent;
+	color: #777;
+	font-size: 14px;
+	padding: 0px;
+	border-radius: 5px;
+	height: auto;
+}
 
 .register_contant .register_contant_row .register_contant_row_inner .item .item_inner form ul li:nth-child(7) {
     width: 100%;

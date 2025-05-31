@@ -1,6 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from 'emailjs-com';
 
 const Contactpage = () => {
+    const[name,setname]= useState('');
+    const[email,setemail]= useState('');
+    const[phone,setphone]= useState('');
+    const[massage,setmassage]= useState('');
+
+    const handlesubmit = (e) => {
+        e.preventDefault();
+    
+        const templateParams = {
+          from_name: name,
+          from_email: email,
+          phone: phone,
+          message: massage,
+        };
+    
+        emailjs
+          .send(
+            "service_d7t70yq",      // servide is
+            "template_ryf0hyn",     //  template id   
+            templateParams,
+            "iJWUOpHOmfcEe8nLZ"          // Public Key
+          )
+          .then(
+            (response) => {
+              console.log("SUCCESS!", response.status, response.text);
+              alert("Message Sent Successfully!");
+              setname('');
+              setemail('');
+              setphone('');
+              setmassage('');
+            },
+            (err) => {
+              console.log("FAILED...", err);
+              alert("Message sending failed.");
+            }
+          );
+      };
+
     return (
         <>
             <div className="product_page_row">
@@ -78,7 +117,7 @@ const Contactpage = () => {
                                     </div>
                                     <div className="info">
                                         <strong>Address</strong>
-                                        <p><i class="fa-solid fa-location-dot"></i>  Ruami Mello Moraes Filho, 987 - <br/>Salvador - MA, 40352, Brazil.</p>
+                                        <p><i class="fa-solid fa-location-dot"></i>  Ruami Mello Moraes Filho, 987 - <br />Salvador - MA, 40352, Brazil.</p>
                                     </div>
                                 </div>
                             </div>
@@ -87,17 +126,20 @@ const Contactpage = () => {
                     <div className="contact_form">
                         <div className="item">
                             <div className="item_inner">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3074.9192048273308!2d72.86129967426228!3d21.233537780715622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f479e1c9a09%3A0x6727e5796da9aa!2sSkywin%20IT%20Academy%20%7C%20IT%20Institute%20in%20Surat%20%7C%20Digital%20Marketing%20Course%20%7C%20Full%20Stack%20Development%20Course%20%7C%20Computer%20Training!5e1!3m2!1sen!2sin!4v1747549326591!5m2!1sen!2sin"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14876.460260949783!2d72
+                                .8129728554199!3d21.2272853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04ec11f8
+                                51d9b%3A0x6c3fb053aee65500!2sKantareshwar%20Mahadev%20Temple!5e0!3m2!1sen!2sin!4v1748088840
+                                986!5m2!1sen!2sin"></iframe>
                             </div>
                         </div>
                         <div className="item">
                             <div className="item_inner">
                                 <form>
-                                    <input type="text" placeholder="FULL NAME" />
-                                    <input type="email" placeholder="Email" />
-                                    <input type="text" placeholder="Phone" />
-                                    <textarea placeholder="Message" required></textarea>
-                                    <button>Submit</button>
+                                    <input type="name" placeholder="FULL NAME" value={name} onChange={(e)=>setname(e.target.value)}/>
+                                    <input type="email" placeholder="Email" value={email} onChange={(e)=>setemail(e.target.value)}/>
+                                    <input type="number" placeholder="Phone" value={phone} onChange={(e)=>setphone(e.target.value)}/>
+                                    <textarea placeholder="Message"  value={massage} onChange={(e)=>setmassage(e.target.value)} required></textarea>
+                                    <button onClick={handlesubmit}>Submit</button>
                                 </form>
                             </div>
                         </div>

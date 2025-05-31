@@ -1,8 +1,6 @@
 import React from 'react'
 import { LuBadgePercent } from "react-icons/lu";
-import { MdOutlineAddLocation } from "react-icons/md";
 import { Link } from 'react-router-dom';
-// import Toggle from './Toggle';
 
 const Header = () => {
     // only 991px to down media apply in javascript
@@ -18,7 +16,7 @@ const Header = () => {
         }
     }
 
-    const menu = (e) =>{
+    const menu = (e) => {
         e.preventDefault();
         const data = e.target.closest("li").querySelector("#data1");
         if (data.style.display === "" || data.style.display === "none") {
@@ -26,7 +24,7 @@ const Header = () => {
         } else {
             data.style.display = "none";
         }
-}
+    }
 
     //  open and close menu bar java script
 
@@ -165,7 +163,6 @@ const Header = () => {
                                             <ul id="data">
                                                 <li>
                                                     <a href="#">Product Left Sidebar</a>
-
                                                 </li>
                                                 <li>
                                                     <a href="#">Product Right Sidebar</a>
@@ -201,8 +198,7 @@ const Header = () => {
                                             <span></span>
                                             <ul id="data">
                                                 <li>
-                                                    <a href="#">Product Left Sidebar</a>
-
+                                                    <Link to="/Product">Product left Sidebar</Link>
                                                 </li>
                                                 <li>
                                                     <a href="#">Product Right Sidebar</a>
@@ -261,7 +257,7 @@ const Header = () => {
                                             <a href="#">About Us</a>
                                         </li>
                                         <li>
-                                            <a href="#">Contact Us</a>
+                                            <Link to="/Contact">Contact</Link>
                                         </li>
                                         <li>
                                             <a href="#">Cart</a>
@@ -279,7 +275,7 @@ const Header = () => {
                                             <a href="#">FAQ</a>
                                         </li>
                                         <li>
-                                            <a href="#">Login</a>
+                                            <Link to="/Login">Login</Link>
                                         </li>
                                     </ul>
                                 </li>
@@ -318,9 +314,9 @@ const Header = () => {
                                             <div className="icon">
                                                 <i class="fa-regular fa-user">
                                                     <ul className="dropdown">
-                                                        <li><a href="/Register">Register</a></li>
+                                                        <li><Link to="/Register">Register</Link></li>
                                                         <li><a href="#">Checkout</a></li>
-                                                        <li><a href="/login">Login</a></li>
+                                                        <li><Link to="/Login">Login</Link></li>
                                                     </ul>
                                                 </i>
                                                 <div className="text">
@@ -701,7 +697,7 @@ const Header = () => {
                                                     <a href="#">About Us</a>
                                                 </li>
                                                 <li>
-                                                    <a href="/Contact">Contact Us</a>
+                                                    <Link to="/Contact">Contact Us</Link>
                                                 </li>
                                                 <li>
                                                     <a href="#">Cart</a>

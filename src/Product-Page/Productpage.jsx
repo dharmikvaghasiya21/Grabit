@@ -12,7 +12,7 @@ import { BsGem } from "react-icons/bs";
 
 import Product from '../Home/Body/Product/Product'
 
-export const Productpage = () => {
+const Productpage = () => {
   const subMenu = (e) => {
     e.preventDefault();
     if (window.innerWidth <= 5000) {
@@ -424,3 +424,5 @@ export const Productpage = () => {
     </>
   )
 }
+
+export default Productpage
